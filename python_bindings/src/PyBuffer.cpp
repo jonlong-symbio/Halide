@@ -461,6 +461,10 @@ void define_buffer(py::module &m) {
             return b.contains(coords);
         }, py::arg("coords"))
 
+        .def("raw_buffer", [](Buffer<> &buf) -> uint64_t {
+            return (uint64_t) buf.get()->raw_buffer();
+        })
+
         .def("__getitem__", [](Buffer<> &buf, const int &pos) -> py::object {
             return buffer_getitem_operator(buf, {pos});
         })
