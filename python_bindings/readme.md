@@ -1,3 +1,7 @@
+## HACK
+
+Use make.sh.
+
 ## Differences from C++ API
 
 The Python bindings attempt to mimic the Halide C++ API as closely as possible, with some differences where the C++ idiom is either inappropriate or impossible:

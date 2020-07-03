@@ -57,7 +57,7 @@ CCFLAGS := $(filter-out -Wstrict-prototypes,$(CCFLAGS))
 
 # DON'T link libpython* - leave those symbols to lazily resolve at load time
 # Cf. https://github.com/pybind/pybind11/blob/master/docs/compiling.rst#building-manually
-LDFLAGS=-lz
+LDFLAGS=-L/home/jonlong/anaconda/envs/py3/lib -lz
 ifeq ($(UNAME), Darwin)
     # Keep OS X builds from complaining about missing libpython symbols
     LDFLAGS += -undefined dynamic_lookup
