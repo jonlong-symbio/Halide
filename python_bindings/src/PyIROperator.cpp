@@ -172,6 +172,7 @@ void define_operators(py::module &m) {
     m.def("likely", &likely);
     m.def("likely_if_innermost", &likely_if_innermost);
     m.def("saturating_cast", (Expr (*)(Type, Expr))&saturating_cast);
+    m.def("dp4a", &dp4a);
 }
 
 }  // namespace PythonBindings

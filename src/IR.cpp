@@ -878,6 +878,7 @@ Call::ConstString Call::absd = "absd";
 Call::ConstString Call::lerp = "lerp";
 Call::ConstString Call::random = "random";
 Call::ConstString Call::popcount = "popcount";
+Call::ConstString Call::dp4a = "dp4a";
 Call::ConstString Call::count_leading_zeros = "count_leading_zeros";
 Call::ConstString Call::count_trailing_zeros = "count_trailing_zeros";
 Call::ConstString Call::undef = "undef";

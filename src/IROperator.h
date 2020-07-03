@@ -1641,6 +1641,19 @@ inline Expr popcount(Expr x) {
                                 {std::move(x)}, Internal::Call::PureIntrinsic);
 }
 
+inline Expr dp4a(Expr x, Expr y) {
+    user_assert(x.defined()) << "dp4a of undefined Expr\n";
+    user_assert(y.defined()) << "dp4a of undefined Expr\n";
+    Type t = x.type();
+    user_assert(t.is_uint() && t.bits() == 32)
+        << "Argument to dp4a must be a UInt(32)\n";
+    t = y.type();
+    user_assert(t.is_uint() && t.bits() == 32)
+        << "Argument to popcount must be a UInt(32)\n";
+    return Internal::Call::make(t, Internal::Call::dp4a,
+                                {std::move(x), std::move(y)}, Internal::Call::PureIntrinsic);
+}
+
 /** Count the number of leading zero bits in an expression. The result is
  *  undefined if the value of the expression is zero. */
 inline Expr count_leading_zeros(Expr x) {

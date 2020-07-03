@@ -499,6 +499,7 @@ struct Call : public ExprNode<Call> {
         random,
         lerp,
         popcount,
+        dp4a,
         count_leading_zeros,
         count_trailing_zeros,
         undef,

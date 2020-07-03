@@ -2344,6 +2344,12 @@ void CodeGen_LLVM::visit(const Call *op) {
         Value *a = codegen(op->args[0]);
         CallInst *call = builder->CreateCall(fn, a);
         value = call;
+    } else if (op->is_intrinsic(Call::dp4a)) {
+        internal_assert(op->args.size() == 2);
+        Value *a = codegen(op->args[0]);
+        Value *b = codegen(op->args[1]);
+        llvm::Function *fn = Intrinsic::getDecleration(
+        value = builder->CreateCall(fn, a, b);
     } else if (op->is_intrinsic(Call::count_leading_zeros) ||
                op->is_intrinsic(Call::count_trailing_zeros)) {
         internal_assert(op->args.size() == 1);
